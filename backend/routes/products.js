@@ -58,6 +58,7 @@ router.patch('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         const product = await Product.findById(req.params.id);
+        console.log(product);
         if (!product) return res.status(404).json({ message: 'Product not found' });
 
         await product.remove();

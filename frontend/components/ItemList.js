@@ -55,8 +55,9 @@ const ItemList = () => {
 
   const deleteItem = async (id) => {
     try {
+      console.log(id);
       await axios.delete(`http://localhost:5000/products/${id}`);
-      setItems(items.filter(item => item._id !== id));
+      fetchItems();
     } catch (error) {
       console.error('Error deleting item:', error);
     }
